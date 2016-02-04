@@ -1,5 +1,36 @@
 jQuery(function($) {
-    var numFlips = 0;
+    var cardArray = [
+        "A.jpg",
+        "B.jpg",
+        "C.jpg",
+        "D.jpg",
+        "E.jpg"
+    ];
+    var imgSrc = "img/";
+
+    // Loop through each card in the array and generate HTML for the matching pair
+    var cardboxOutput = "";
+    var cardCount = cardArray.length;
+    var count = 1;
+    for (i = 0; i < cardCount; i++) {
+        var output = '<div class="flip-container">'
+                +'<div id="card'+count+'" class="card">'
+                    +'<div class="front"></div>'
+                    +'<div class="back"><img src="'+imgSrc+cardArray[i]+'"/></div>'
+                +'</div>'
+            +'</div>';
+        count++;
+        output += '<div class="flip-container">'
+                +'<div id="card'+count+'" class="card">'
+                    +'<div class="front"></div>'
+                    +'<div class="back"><img src="'+imgSrc+cardArray[i]+'"/></div>'
+                +'</div>'
+            +'</div>';
+        count++;
+        cardboxOutput += output;
+    }
+    $("#cardbox").html(cardboxOutput);
+
     var card1Checked = null;
     var card2Checked = null;
     var card3Checked = null;
@@ -10,35 +41,28 @@ jQuery(function($) {
     var card8Checked = null;
     var card9Checked = null;
     var card10Checked = null;
-    $("#card1 .back").html("<img src='img/A.jpg'/>");
-    $("#card2 .back").html("<img src='img/A.jpg'/>");
-    $("#card3 .back").html("<img src='img/B.jpg'/>");
-    $("#card4 .back").html("<img src='img/B.jpg'/>");
-    $("#card5 .back").html("<img src='img/C.jpg'/>");
-    $("#card6 .back").html("<img src='img/C.jpg'/>");
-    $("#card7 .back").html("<img src='img/D.jpg'/>");
-    $("#card8 .back").html("<img src='img/D.jpg'/>");
-    $("#card9 .back").html("<img src='img/E.jpg'/>");
-    $("#card10 .back").html("<img src='img/E.jpg'/>");
+
+    // Fastclick script used to load touch functions faster
     $(function() {
         FastClick.attach(document.body);
     });
 
+    // Randomize the order of the cards
     randomize();
-    
-    
+
+    var numFlips = 0;
     $(".card").click(function() {
         if (!($(this).hasClass("matched"))) {
             numFlips = $('.flip').length;
             if (numFlips < 1) {
-                $(this).addClass("flip"); 
+                $(this).addClass("flip");
             } else {
                 $(this).addClass("flip");
                 checkMatch();
             }
         }
     });
-    
+
     $("#resetCards").click(function() {
         $(".card").removeClass("flip matched");
         setTimeout(function(){
@@ -47,7 +71,28 @@ jQuery(function($) {
     });
 });
 
-function checkMatch(){
+function isOdd(num) {
+    return num % 2;
+}
+
+function checkMatch() {
+    var checkCards = $(".flip").toArray();
+    var c1 = checkCards[0];
+    var c2 = checkCards[1];
+
+    if (isOdd(c1)) {
+        
+    }
+
+    /*$(".flip").each(function(i) {
+        var cardID = $(this).attr('id');
+        var cardNum = cardID.replace('card', '');
+        if (isOdd(cardNum)) {
+            console.log(cardNum+" is Odd");
+        } else {
+            console.log(cardNum);
+        }
+    });*/
     card1Checked = $("#card1.flip").length;
     card2Checked = $("#card2.flip").length;
     card3Checked = $("#card3.flip").length;
