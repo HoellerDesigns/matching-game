@@ -1,4 +1,11 @@
 jQuery(function($) {
+
+    // Fastclick script used to load touch functions faster
+    $(function() {
+        FastClick.attach(document.body);
+    });
+
+    // Set Custom Cards Here:
     var cardArray = [
         "A.jpg",
         "B.jpg",
@@ -6,7 +13,9 @@ jQuery(function($) {
         "D.jpg",
         "E.jpg"
     ];
+    // Set Path to Card Images Here:
     var imgSrc = "img/";
+
 
     // Loop through each card in the array and generate HTML for the matching pair
     var cardboxOutput = "";
@@ -42,10 +51,6 @@ jQuery(function($) {
     var card9Checked = null;
     var card10Checked = null;
 
-    // Fastclick script used to load touch functions faster
-    $(function() {
-        FastClick.attach(document.body);
-    });
 
     // Randomize the order of the cards
     randomize();
@@ -81,7 +86,7 @@ function checkMatch() {
     var c2 = checkCards[1];
 
     if (isOdd(c1)) {
-        
+
     }
 
     /*$(".flip").each(function(i) {
