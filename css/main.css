@@ -1,3 +1,7 @@
+body {
+    color: #555;
+}
+
 .clearfix:before,
 .clearfix:after {
     content: " ";
@@ -16,14 +20,56 @@
     text-align: center;
 }
 
-#main-content {
-    max-width: 975px;
+#mg-content {
+    max-width: 700px;
     margin: 0 auto;
     padding:0 20px;
+    position: relative;
+}
+.mainTitle {
+    text-align: center;
+    color: #555;
+    font-size: 40px;
 }
 
-#cardbox {
+#deck {
     text-align: center;
+}
+
+#mg-footer {
+    text-align: center;
+    margin: 10px;
+}
+
+#clickCount {
+    display: inline-block;
+    padding: .5em 1em;
+    margin: 5px;
+    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    border: 2px solid #71A4AC;
+    border-radius: 3px;
+}
+
+#mg-footer button {
+    padding: .5em 1em;
+    margin: 5px;
+    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #fff;
+    background: #71A4AC;
+    border: 2px solid #71A4AC;
+    border-radius: 3px;
+    cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
+    -webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
+}
+
+#mg-footer button:hover,
+#mg-footer button:focus {
+    background: #F0563B;
+    border: 2px solid #F0563B;
 }
 
 
@@ -165,7 +211,7 @@
 
 /* Mobile Styles */
 @media screen and (max-width:540px) {
-    #cardbox {
+    #deck {
         width: 100%;
         position: relative;
     }
