@@ -76,18 +76,43 @@ jQuery(function($) {
     });
 });
 
+
 function isOdd(num) {
     return num % 2;
 }
 
 function checkMatch() {
     var checkCards = $(".flip").toArray();
-    var c1 = checkCards[0];
+    var c1 = checkCards[0].attr("id");
     var c2 = checkCards[1];
+    //var c1ID = c1.attr("id");
+    //var c2ID = c2.attr("id");
+
+    // return id, then remove "card" string
+    console.log(c1);
+    console.log(c2);
 
     if (isOdd(c1)) {
-
+        // It's match would need to be plus one.
+        if (Number(c1) + 1 === c2) {
+            console.log("MATCH!");
+        } else {
+            setTimeout(function(){
+                $(".card").removeClass("flip");
+            }, 700);
+        }
+    } else {
+        // It's match would need to be minus one.
+        if (Number(c1) - 1 === c2) {
+            console.log("MATCH!");
+        } else {
+            setTimeout(function(){
+                $(".card").removeClass("flip");
+            }, 700);
+        }
     }
+
+    finished();
 
     /*$(".flip").each(function(i) {
         var cardID = $(this).attr('id');
@@ -98,7 +123,7 @@ function checkMatch() {
             console.log(cardNum);
         }
     });*/
-    card1Checked = $("#card1.flip").length;
+    /*card1Checked = $("#card1.flip").length;
     card2Checked = $("#card2.flip").length;
     card3Checked = $("#card3.flip").length;
     card4Checked = $("#card4.flip").length;
@@ -128,7 +153,7 @@ function checkMatch() {
             $(".card").removeClass("flip");
         }, 700);
     }
-    finished();
+    finished();*/
 };
 
 function finished() {
