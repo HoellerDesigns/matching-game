@@ -74,6 +74,7 @@ jQuery(function($) {
     $("#resetCards").click(function() {
         $(".card").removeClass("flip matched");
         $("#clickCount span").html("0");
+        clickCount = 0;
         setTimeout(function(){
             randomize();
         }, 500);
