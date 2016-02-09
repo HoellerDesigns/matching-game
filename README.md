@@ -1,12 +1,10 @@
-# matching-game
+# Matching Game
 A simple, responsive and cross-browser compatible matching game using jQuery and CSS.
 
-View the live demo on my portfolio page: <a href="http://hoellerdesigns.com/projects/matching-game/" target="_blank" title="Matching Game Demo"> www.hoellerdesigns.com/matching-game</a>
+View the live demo on my portfolio page: www.hoellerdesigns.com/matching-game
 
 
-<h2>LICENSE</h2>
-
-<hr>
+#LICENSE
 
 (The MIT License)
 
